@@ -55,7 +55,7 @@ GL_LIBS = -lGL -lXext -lX11
 # COMPILER CONFIGURATION: Set "CC" to the name of the compiler to use
 # to build the binary benchmarks.  You should also set "$cCompiler" in the
 # Run script to the name of the compiler you want to test.
-CC=gcc
+#CC=gcc
 
 # OPTIMISATION SETTINGS:
 # Use gcc option if defined UB_GCC_OPTIONS via "Environment variable" or "Command-line arguments".
@@ -88,18 +88,18 @@ else
   OPTON = -O3 -ffast-math
 
   ## OS detection.  Comment out if gmake syntax not supported by other 'make'. 
-  OSNAME:=$(shell uname -s)
-  ARCH := $(shell uname -p)
-  ifeq ($(OSNAME),Linux)
+  #OSNAME:=$(shell uname -s)
+  #ARCH := $(shell uname -p)
+  #ifeq ($(OSNAME),Linux)
     # Not all CPU architectures support "-march" or "-march=native".
     #   - Supported    : x86, x86_64, ARM, AARCH64, etc..
     #   - Not Supported: RISC-V, IBM Power, etc...
-    ifneq ($(ARCH),$(filter $(ARCH),ppc64 ppc64le))
-        OPTON += -march=native -mtune=native
-    else
-        OPTON += -mcpu=native -mtune=native
-    endif
-  endif
+  #  ifneq ($(ARCH),$(filter $(ARCH),ppc64 ppc64le))
+  #      OPTON += -march=native -mtune=native
+  #  else
+  #      OPTON += -mcpu=native -mtune=native
+  #  endif
+  #endif
 
   ifeq ($(OSNAME),Darwin)
     # (adjust flags or comment out this section for older versions of XCode or OS X)
